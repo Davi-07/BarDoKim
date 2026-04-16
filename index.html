@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar do Kim | Início</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Montserrat:wght@500;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="home-page">
+
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="#inicio" class="nav-logo" aria-label="Página Inicial">
+                <img src="assets/img/logo.jpg" alt="Logo Bar do Kim" class="logo-img">
+            </a>
+            
+            <div class="nav-links-desktop">
+                <a href="#inicio" class="nav-link active">Início</a>
+                <a href="#cardapio" class="nav-link">Cardápio</a>
+                <a href="#contato" class="nav-link">Contato</a>
+            </div>
+
+            <button id="mobile-menu-btn" class="nav-mobile-btn" aria-label="Abrir Menu">
+                <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="18" x2="20" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#inicio" class="nav-link active">Início</a>
+        <a href="#cardapio" class="nav-link">Cardápio</a>
+        <a href="#contato" class="nav-link">Contato</a>
+    </div>
+
+    <main>
+        <header id="inicio" class="hero hero-full">
+            <div class="hero-bg" id="bg-carousel">
+                <img src="assets/img/branco.jpg" alt="Fundo Bar do Kim" class="slide active">
+            </div>
+            <div class="hero-overlay-dark"></div>
+            <div class="hero-content animate">
+                <h1 class="title" style="display:none;">Bar do Kim</h1> 
+            </div>
+        </header>
+
+        <section class="about-preview">
+            <div class="container grid-about animate">
+                <div class="about-text-content">
+                    <p class="welcome-subtitle">SEJA BEM VINDO</p>
+                    <h2 class="section-title">O bar mais amado<br>do Palmeiras!</h2>
+                    <p class="text-muted">Cada prato é preparado com ingredientes frescos e selecionados. Acreditamos que a boa comida une pessoas e transforma momentos simples em experiências memoráveis.</p>
+                    
+                    <div class="cta-group">
+                        <a href="https://www.ifood.com.br/delivery/" target="_blank" rel="noopener noreferrer" class="btn btn-ifood">
+                            <img src="assets/img/ifood.png" alt="Ícone iFood"> Faça seu pedido
+                        </a> 
+                        <a href="https://web.whatsapp.com/send?phone=31987768550" target="_blank" rel="noopener noreferrer"                     class="btn btn-whatsapp">
+                            <img src="assets/img/whatsapp.png" alt="Ícone WhatsApp"> Faça seu pedido
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <img src="assets/img/prato1.jpg" alt="Prato especial do Bar do Kim" class="img-rounded">
+                </div>
+            </div>
+        </section>
+
+        <section id="cardapio" class="favorites">
+            <div class="favorites-title">Cardápio</div>
+            <h2 class="section-title pb-2">Confira o nosso cardápio!</h2>
+            
+            <div class="menu-controls container">
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="prato">Pratos</button>
+                    <button class="filter-btn" data-filter="bebida">Bebidas</button>
+                </div>
+                
+                <div class="carousel-arrows" id="carousel-arrows">
+                    <button class="arrow-btn" id="btn-prev" aria-label="Anterior">❮</button>
+                    <button class="arrow-btn" id="btn-next" aria-label="Próximo">❯</button>
+                </div>
+            </div>
+
+            <div class="favorites-preview carousel-mode" id="menu-container">
+                <article class="favorites-plate" data-category="prato">
+                    <h3>Bolinho de <br> Feijão</h3>
+                    <p class="plate-desc">Descrição breve do bolinho de feijão.</p>
+                    <b class="plate-price">R$ 19,90</b>
+                    <button class="btn btn-pedido"> 
+                        <img src="assets/img/carrinho.png" alt="Ícone Carrinho" class="icon-cart"> Peça agora
+                    </button>
+                    <img src="assets/img/prato2.jpg" alt="Bolinho de Feijão" class="plate-img">
+                </article>
+
+                <article class="favorites-plate" data-category="prato">
+                    <h3>Língua Recheada</h3>
+                    <p class="plate-desc">Deliciosa língua recheada com temperos da casa.</p>
+                    <b class="plate-price">R$ 24,90</b>
+                    <button class="btn btn-pedido"> 
+                        <img src="assets/img/carrinho.png" alt="Ícone Carrinho" class="icon-cart"> Peça agora
+                    </button>
+                    <img src="assets/img/prato3.jpg" alt="Língua Recheada" class="plate-img">
+                </article>
+
+                <article class="favorites-plate" data-category="bebida">
+                    <h3>Cerveja Artesanal <br> (600ml)</h3>
+                    <p class="plate-desc">IPA gelada e refrescante.</p>
+                    <b class="plate-price">R$ 15,90</b>
+                    <button class="btn btn-pedido"> 
+                        <img src="assets/img/carrinho.png" alt="Ícone Carrinho" class="icon-cart"> Peça agora
+                    </button>
+                    <img src="assets/img/prato1.jpg" alt="Cerveja Artesanal" class="plate-img">
+                </article>
+            </div>
+        </section>
+
+        <section id="contato" class="location">
+            <div class="favorites-title">Localização e Horários</div>
+            <h2 class="section-title pb-2">Onde a gente está</h2>
+
+            <div class="location-partition">
+                <div class="location-image-wrapper">
+                    <img src="assets/img/calcada.jpg" alt="Fachada do Bar do Kim" class="img-rounded">
+                </div>
+                
+                <div class="location-info-wrapper">
+                    <div class="location-address">
+                        <img src="assets/img/localizacao.png" alt="Ícone Localização" class="icon-location">
+                        <div class="address-text-container">
+                            <h2>Endereço</h2>
+                            <address class="address-lines">
+                                <p>R. Júlio de Castilho, 1071</p>
+                                <p>Palmeiras - Belo Horizonte, MG</p>
+                            </address>
+                        </div>
+                    </div>
+                    
+                    <div class="location-address">
+                        <img src="assets/img/relogio.png" alt="Ícone Relógio" class="icon-time">
+                        <div class="address-text-container">
+                            <h2>Horários e Funcionamento</h2>
+                            <div class="address-lines">
+                                <p>Segunda a Domingo: 17:00 - 00:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="location-contact">
+                        <h2>Contato</h2>
+                        <div class="contact-links">
+                            <div class="address-contact-item">
+                                <img src="assets/img/telefone.png" alt="Ícone Telefone" class="icon-contact">
+                                <a href="https://web.whatsapp.com/send?phone=31987768550" target="_blank" rel="noopener noreferrer">(31) 98776-8550</a>
+                            </div>
+                            <div class="address-contact-item">
+                                <img src="assets/img/instagram.png" alt="Ícone Instagram" class="icon-contact">
+                                <a href="https://www.instagram.com/bardokim2021" target="_blank" rel="noopener noreferrer">@bardokim2021</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p class="nav-logo">Bar do Kim</p>
+            <p class="footer-text">&copy; 2026 Bar do Kim. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

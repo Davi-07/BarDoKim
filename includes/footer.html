@@ -1,0 +1,38 @@
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-top">
+            <p class="footer-logo">Bar do Kim</p>
+            <div class="footer-links">
+                <a href="/">Início</a>
+                <a href="/pedidos">Pedidos</a>
+                <a href="/contatos">Contatos</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Bar do Kim. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const iconMenu = document.getElementById('icon-menu');
+        const iconClose = document.getElementById('icon-close');
+        let isMenuOpen = false;
+
+        mobileBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.add('open');
+                iconMenu.style.display = 'none';
+                iconClose.style.display = 'block';
+            } else {
+                mobileMenu.classList.remove('open');
+                iconMenu.style.display = 'block';
+                iconClose.style.display = 'none';
+            }
+        });
+    });
+</script>
