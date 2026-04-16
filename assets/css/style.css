@@ -161,6 +161,8 @@ section { padding: 5rem 1.5rem; }
 /* --- Cardápio (Favorites) --- */
 .favorites { background-color: var(--background); text-align: center; }
 .favorites-title { font-family: 'Chelsea Market', system-ui; font-size: 1.25rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 0.5rem; }
+.favorites-partition { display: flex; flex-direction: row; align-items: center; gap: 3rem; max-width: 1100px; margin: 0 auto; }
+
 
 .menu-controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
 .filters { display: flex; gap: 0.5rem; }
