@@ -48,6 +48,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const sections = document.querySelectorAll('#inicio, #cardapio, #contato');
+    const navLinksAll = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+        let currentSection = '';
+
+        // Descobre em qual seção a tela está no momento
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            // O "- 150" é um desconto para a altura da navbar fixa. 
+            // Assim a cor muda um pouco antes da seção bater no topo exato da tela.
+            if (window.scrollY >= (sectionTop - 150)) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+
+        // Atualiza as classes nos links do menu (tanto Desktop quanto Mobile)
+        navLinksAll.forEach(link => {
+            // Remove a classe 'active' de todos
+            link.classList.remove('active');
+            
+            // Se o href do link conter o ID da seção atual, adiciona o 'active'
+            if (link.getAttribute('href') === `#${currentSection}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+
     // --- 4. Controle do Carrossel Hero (Página Inicial) ---
     if (slides.length > 1) {
         let currentSlide = 0;
