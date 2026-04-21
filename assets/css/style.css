@@ -45,7 +45,7 @@ body {
     display: flex; align-items: center; justify-content: space-between;   
 }
 
-.nav-logo { font-family: 'Chelsea Market', system-ui; font-size: 1.5rem; color: var(--foreground); text-decoration: none; }
+.nav-logo { font-family: 'Chelsea Market', system-ui; font-size: 1.5rem; color: var(--accent-foreground); text-decoration: none; }
 .logo-img { height: 4rem; width: auto; object-fit: contain; }
 
 .nav-links-desktop { display: none; gap: 2rem; }
@@ -104,7 +104,7 @@ section { padding: 5rem 1.5rem; }
 .btn-pedido:hover img{ filter: brightness(100);}
 
 /* --- Cardápio e QR Code --- */
-.favorites { background-color: var(--background); text-align: center; }
+.favorites { background-color: #fff5cd; background-position: center center; background-size: cover; background-repeat: no-repeat; text-align: center; min-height: 100vh; width: 100%; }
 .favorites-title { font-family: 'Chelsea Market', system-ui; font-size: 1.25rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 0.5rem; }
 
 /* Wrapper principal do QR + Menu */
@@ -157,19 +157,19 @@ section { padding: 5rem 1.5rem; }
 .plate-price { font-family: var(--font-display); font-size: 1.75rem; font-weight: bold; color: var(--accent); margin-bottom: 1rem; }
 .plate-img { width: 100%; height: 160px; border-radius: 0.5rem; object-fit: cover; margin-top: 1rem; }
 
-/* --- Nosso Espaço --- */
-.container our-space {
-  display: flex; 
-  flex-wrap: wrap; 
-  gap: 15px; 
-  padding: 10px;
+/*-- Nosso espaço --*/
+.our-space{ display: flex; flex-direction: column; text-align: center; }
+.galery{column-count: 3 ; column-gap: 15px; padding: 15px;}
+.galery img {
+  width: 100%;
+  height: auto; 
+  margin-bottom: 15px;
+  display: block; 
+  transition: transform 0.3s ease;
 }
 
-.img-responsiva {
-  max-width: 100%;
-  height: auto;
-  flex: 1 1 auto; /* Imagens crescem e diminuem */
-  object-fit: cover; /* Recorta a imagem para preencher sem distorcer */
+.galery img:hover {
+  transform: scale(1.02);
 }
 
 /* --- Localização e Contato --- */
@@ -185,7 +185,7 @@ section { padding: 5rem 1.5rem; }
 .address-contact-item a:hover { color: var(--accent); }
 
 /* --- Footer --- */
-footer { padding: 3rem 1.5rem; border-top: 1px solid var(--border); background: white; text-align: center;}
+footer { padding: 3rem 1.5rem; border-top: 1px solid var(--border); background: var(--foreground); color: var(--accent-foreground); text-align: center;}
 .footer-container { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
 
 
@@ -229,4 +229,5 @@ footer { padding: 3rem 1.5rem; border-top: 1px solid var(--border); background: 
 /* Ocultar setas em celulares menores */
 @media (max-width: 768px) {
     .carousel-arrows { display: none; }
+    .galery {column-count: 1;}
 }

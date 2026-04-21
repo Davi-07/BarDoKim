@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    const sections = document.querySelectorAll('#inicio, #cardapio, #contato');
+    const sections = document.querySelectorAll('#inicio, #cardapio, #espaco, #contato');
     const navLinksAll = document.querySelectorAll('.nav-link');
 
     window.addEventListener('scroll', () => {
