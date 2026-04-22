@@ -11,195 +11,204 @@
 </head>
 <body class="home-page">
 
-    <nav id="navbar" class="navbar">
-        <div class="nav-container">
-            <a href="#inicio" class="nav-logo" aria-label="Página Inicial">
-                <img src="assets/img/logo.jpg" alt="Logo Bar do Kim" class="logo-img">
+    <nav id="navbar" class="navbar" role="navigation" aria-label="Menu principal">
+        <div class="navbar__container">
+            <a href="#inicio" class="navbar__logo" aria-label="Ir para a página inicial">
+                <img src="assets/img/logo.jpg" alt="Logo Bar do Kim" class="navbar__logo-img">
             </a>
-            
-            <div class="nav-links-desktop">
-                <a href="#inicio" class="nav-link active">Início</a>
-                <a href="#cardapio" class="nav-link">Cardápio</a>
-                <a href="#espaco" class="nav-link">Nosso Espaço</a>
-                <a href="#contato" class="nav-link">Contato</a>
-            </div>
 
-            <button id="mobile-menu-btn" class="nav-mobile-btn" aria-label="Abrir Menu">
-                <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="18" x2="20" y2="18"></line>
+            <ul class="navbar__links" role="list">
+                <li><a href="#inicio"   class="navbar__link is-active">Início</a></li>
+                <li><a href="#cardapio" class="navbar__link">Cardápio</a></li>
+                <li><a href="#espaco"   class="navbar__link">Nosso Espaço</a></li>
+                <li><a href="#contato"  class="navbar__link">Contato</a></li>
+            </ul>
+
+            <button id="js-mobile-menu-btn" class="navbar__mobile-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="js-mobile-menu">
+                <svg id="js-icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="4" y1="6"  x2="20" y2="6"></line>
+                    <line x1="4" y1="12" x2="20" y2="12"></line>
+                    <line x1="4" y1="18" x2="20" y2="18"></line>
                 </svg>
             </button>
         </div>
     </nav>
 
-    <div class="mobile-menu" id="mobile-menu">
-        <a href="#inicio" class="nav-link active">Início</a>
-        <a href="#cardapio" class="nav-link">Cardápio</a>
-        <a href="#espaco" class="nav-link">Nosso Espaço</a>
-        <a href="#contato" class="nav-link">Contato</a>
+    <div id="js-mobile-menu" class="mobile-menu" role="menu" aria-hidden="true">
+        <a href="#inicio"   class="mobile-menu__link is-active" role="menuitem">Início</a>
+        <a href="#cardapio" class="mobile-menu__link" role="menuitem">Cardápio</a>
+        <a href="#espaco"   class="mobile-menu__link" role="menuitem">Nosso Espaço</a>
+        <a href="#contato"  class="mobile-menu__link" role="menuitem">Contato</a>
     </div>
 
     <main>
-        <header id="inicio" class="hero hero-full">
-            <div class="hero-bg" id="bg-carousel">
-                <img src="assets/img/branco.jpg" alt="Fundo Bar do Kim" class="slide active">
+
+        <!-- ===================== HERO ===================== -->
+        <header id="inicio" class="hero" aria-label="Seção inicial">
+            <div class="hero__bg" id="js-bg-carousel">
+                <img src="assets/img/branco.jpg" alt="" class="hero__slide is-active" aria-hidden="true">
             </div>
-            <div class="hero-overlay-dark"></div>
-            <div class="hero-content animate">
-                <h1 class="title" style="display:none;">Bar do Kim</h1> 
-            </div>
+            <div class="hero__overlay" aria-hidden="true"></div>
         </header>
 
-        <section class="about-preview">
-            <div class="container grid-about animate">
-                <div class="about-text-content">
-                    <p class="welcome-subtitle">SEJA BEM VINDO</p>
-                    <h2 class="section-title">O bar mais amado<br>do Palmeiras!</h2>
+        <!-- ===================== SOBRE ===================== -->
+        <section class="about" aria-labelledby="about-heading">
+            <div class="container about__grid">
+                <div class="about__text">
+                    <p class="label">Seja bem-vindo</p>
+                    <h2 id="about-heading" class="section-title">O bar mais amado<br>do Palmeiras!</h2>
                     <p class="text-muted">Cada prato é preparado com ingredientes frescos e selecionados. Acreditamos que a boa comida une pessoas e transforma momentos simples em experiências memoráveis.</p>
-                    
-                    <div class="cta-group">
-                        <a href="https://www.ifood.com.br/delivery/" target="_blank" rel="noopener noreferrer" class="btn btn-ifood">
-                            <img src="assets/img/ifood.png" alt="Ícone iFood"> Faça seu pedido
-                        </a> 
-                        <a href="https://wa.me/31987768550" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
-                            <img src="assets/img/whatsapp.png" alt="Ícone WhatsApp"> Faça seu pedido
+
+                    <div class="about__cta-group">
+                        <a href="https://www.ifood.com.br/delivery/" target="_blank" rel="noopener noreferrer" class="btn btn--ifood">
+                            <img src="assets/img/ifood.png" alt="" aria-hidden="true"> Faça seu pedido
+                        </a>
+                        <a href="https://wa.me/31987768550" target="_blank" rel="noopener noreferrer" class="btn btn--whatsapp">
+                            <img src="assets/img/whatsapp.png" alt="" aria-hidden="true"> Faça seu pedido
                         </a>
                     </div>
                 </div>
-                <div>
+                <div class="about__image">
                     <img src="assets/img/prato1.jpg" alt="Prato especial do Bar do Kim" class="img-rounded">
                 </div>
             </div>
         </section>
 
-        <section id="cardapio" class="favorites">
-            <div>
-                <div class="favorites-title">Cardápio</div>
-                <h2 class="section-title pb-2">Confira o nosso cardápio!</h2>
+        <!-- ===================== CARDÁPIO ===================== -->
+        <section id="cardapio" class="menu" aria-labelledby="menu-heading">
+            <div class="section-header">
+                <p class="label">Cardápio</p>
+                <h2 id="menu-heading" class="section-title">Confira o nosso cardápio!</h2>
             </div>
-            
-            <div class="favorites-layout container">
-                
-                <div class="qr-code-section">
-                    <p class="qr-text">Se quiser ter acesso ao cardápio completo, escaneie o QR Code abaixo:</p>
-                    <img src="assets/img/cardapioKim.png" alt="QR Code do Cardápio Completo" class="qr-img">
-                    <p class="qr-text">OU clique no link abaixo:</p>
-                    <a href="https://arturgabriel311.wixsite.com/cardapios2/bardokim" target="_blank" rel="noopener noreferrer">Acessar Cardápio Completo</a>
-                </div>
-                
-                <div class="menu-section">
-                    <div class="menu-controls">
-                        <div class="filters">
-                            <button class="filter-btn active" data-filter="prato">Pratos</button>
+
+            <div class="container menu__layout">
+
+                <aside class="menu__qr-card" aria-label="QR Code do cardápio completo">
+                    <p class="menu__qr-text">Escaneie o QR Code para o cardápio completo:</p>
+                    <img src="assets/img/cardapioKim.png" alt="QR Code do Cardápio Completo" class="menu__qr-img">
+                    <p class="menu__qr-text">OU acesse pelo link:</p>
+                    <a href="https://arturgabriel311.wixsite.com/cardapios2/bardokim" target="_blank" rel="noopener noreferrer" class="menu__qr-link">
+                        Acessar Cardápio Completo
+                    </a>
+                </aside>
+
+                <div class="menu__catalog">
+                    <div class="menu__controls">
+                        <div class="menu__filters" role="group" aria-label="Filtrar por categoria">
+                            <button class="filter-btn is-active" data-filter="prato">Pratos</button>
                             <button class="filter-btn" data-filter="bebida">Bebidas</button>
                         </div>
-
-                        <div class="carousel-arrows" id="carousel-arrows">
-                            <button class="arrow-btn" id="btn-prev" aria-label="Anterior">❮</button>
-                            <button class="arrow-btn" id="btn-next" aria-label="Próximo">❯</button>
+                        <div class="menu__arrows" id="js-carousel-arrows" aria-label="Navegar pelo cardápio">
+                            <button class="arrow-btn" id="js-btn-prev" aria-label="Item anterior">❮</button>
+                            <button class="arrow-btn" id="js-btn-next" aria-label="Próximo item">❯</button>
                         </div>
                     </div>
 
-                    <div class="favorites-preview carousel-mode" id="menu-container">
-                        <article class="favorites-plate" data-category="prato">
-                            <h3>Bolinho de <br> Feijão</h3>
-                            <p class="plate-desc">Descrição breve do bolinho de feijão.</p>
-                            <b class="plate-price">R$ 19,90</b>
-                            <button class="btn btn-pedido"> 
-                                <img src="assets/img/carrinho.png" alt="Ícone Carrinho" class="icon-cart"> Peça agora
+                    <div class="menu__carousel" id="js-menu-container" role="list">
+                        <article class="menu__card" data-category="prato" role="listitem">
+                            <h3 class="menu__card-title">Bolinho de Feijão</h3>
+                            <p class="menu__card-desc">Descrição breve do bolinho de feijão.</p>
+                            <strong class="menu__card-price">R$ 19,90</strong>
+                            <button class="btn btn--order">
+                                <img src="assets/img/carrinho.png" alt="" aria-hidden="true"> Peça agora
                             </button>
-                            <img src="assets/img/prato2.jpg" alt="Bolinho de Feijão" class="plate-img">
+                            <img src="assets/img/prato2.jpg" alt="Bolinho de Feijão" class="menu__card-img">
                         </article>
 
-                        <article class="favorites-plate" data-category="prato">
-                            <h3>Língua Recheada</h3>
-                            <p class="plate-desc">Deliciosa língua recheada com temperos da casa.</p>
-                                <b class="plate-price">R$ 24,90</b>
-                            <button class="btn btn-pedido"> 
-                                <img src="assets/img/carrinho.png" alt="Ícone Carrinho" class="icon-cart"> Peça agora
+                        <article class="menu__card" data-category="prato" role="listitem">
+                            <h3 class="menu__card-title">Língua Recheada</h3>
+                            <p class="menu__card-desc">Deliciosa língua recheada com temperos da casa.</p>
+                            <strong class="menu__card-price">R$ 24,90</strong>
+                            <button class="btn btn--order">
+                                <img src="assets/img/carrinho.png" alt="" aria-hidden="true"> Peça agora
                             </button>
-                            <img src="assets/img/prato3.jpg" alt="Língua Recheada" class="plate-img">
+                            <img src="assets/img/prato3.jpg" alt="Língua Recheada" class="menu__card-img">
                         </article>
 
-                        <article class="favorites-plate" data-category="bebida">
-                            <h3>Cerveja Artesanal <br> (600ml)</h3>
-                            <p class="plate-desc">IPA gelada e refrescante.</p>
-                            <b class="plate-price">R$ 15,90</b>
-                            <button class="btn btn-pedido"> 
-                                <img src="assets/img/carrinho.png" alt="Ícone Carrinho" class="icon-cart"> Peça agora
+                        <article class="menu__card" data-category="bebida" role="listitem">
+                            <h3 class="menu__card-title">Cerveja Artesanal (600ml)</h3>
+                            <p class="menu__card-desc">IPA gelada e refrescante.</p>
+                            <strong class="menu__card-price">R$ 15,90</strong>
+                            <button class="btn btn--order">
+                                <img src="assets/img/carrinho.png" alt="" aria-hidden="true"> Peça agora
                             </button>
-                            <img src="assets/img/prato1.jpg" alt="Cerveja Artesanal" class="plate-img">
+                            <img src="assets/img/prato1.jpg" alt="Cerveja Artesanal" class="menu__card-img">
                         </article>
                     </div>
                 </div>
-            </div>
-        </section>
-        
-        <section class="our-space" id="espaco">
-            <div>
-                <div class="favorites-title">Nosso espaço</div>
-                <h2 class="section-title pb-2">Conheça melhor <br> nosso espaço aconchegante!</h2>
-            </div>
-            <div class="galery">
-                <img src="assets/img/calcada.jpg" alt="">
-                <img src="assets/img/prato1.jpg" alt="" srcset="">
-                <img src="assets/img/prato3.jpg" alt="">
+
             </div>
         </section>
 
-        <section id="contato" class="location">
-            <div class="favorites-title">Contato, Localização e Horários</div>
-            <h2 class="section-title pb-2">Como nos encontrar</h2>
+        <!-- ===================== NOSSO ESPAÇO ===================== -->
+        <section class="space" id="espaco" aria-labelledby="space-heading">
+            <div class="section-header">
+                <p class="label">Nosso espaço</p>
+                <h2 id="space-heading" class="section-title">Conheça nosso espaço aconchegante!</h2>
+            </div>
+            <div class="space__gallery">
+                <img src="assets/img/calcada.jpg" alt="Calçada do Bar do Kim">
+                <img src="assets/img/prato1.jpg"  alt="Prato do Bar do Kim">
+                <img src="assets/img/prato3.jpg"  alt="Prato especial do Bar do Kim">
+            </div>
+        </section>
 
-            <div class="location-partition">
-                <div class="location-image-wrapper">
+        <!-- ===================== CONTATO ===================== -->
+        <section id="contato" class="contact" aria-labelledby="contact-heading">
+            <div class="section-header">
+                <p class="label">Contato, Localização e Horários</p>
+                <h2 id="contact-heading" class="section-title">Como nos encontrar</h2>
+            </div>
+
+            <div class="contact__partition">
+                <div class="contact__image">
                     <img src="assets/img/calcada.jpg" alt="Fachada do Bar do Kim" class="img-rounded">
                 </div>
-                
-                <div class="location-info-wrapper">
-                    <div class="location-address">
-                        <img src="assets/img/localizacao.png" alt="Ícone Localização" class="icon-location">
-                        <div class="address-text-container">
-                            <h2>Endereço</h2>
-                            <a class="address-lines" href="https://www.google.com/maps/place/R.+J%C3%BAlio+de+Castilho,+1071+-+Palmeiras,+Belo+Horizonte+-+MG,+30570-080/@-19.9645997,-43.9832045,17z/data=!3m1!4b1!4m6!3m5!1s0xa697d2c002d659:0xdf7d75df2a9864d9!8m2!3d-19.9646048!4d-43.9806296!16s%2Fg%2F11rghvymt9?entry=ttu&g_ep=EgoyMDI2MDQxNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
-                                <p>R. Júlio de Castilho, 1071</p>
-                                <p>Palmeiras - Belo Horizonte, MG</p>
+
+                <address class="contact__info">
+
+                    <div class="contact__info-item">
+                        <img src="assets/img/localizacao.png" alt="" aria-hidden="true" class="contact__icon">
+                        <div>
+                            <h3 class="contact__info-title">Endereço</h3>
+                            <a href="https://www.google.com/maps/place/R.+J%C3%BAlio+de+Castilho,+1071+-+Palmeiras,+Belo+Horizonte+-+MG,+30570-080/@-19.9645997,-43.9832045,17z" target="_blank" rel="noopener noreferrer" class="contact__address-link">
+                                <p>R. Júlio de Castilho, 1071<br>Palmeiras - Belo Horizonte, MG</p>
                             </a>
                         </div>
                     </div>
-                    
-                    <div class="location-address">
-                        <img src="assets/img/relogio.png" alt="Ícone Relógio" class="icon-time">
-                        <div class="address-text-container">
-                            <h2>Horários e Funcionamento</h2>
-                            <div class="address-lines">
-                                <p>Segunda a Domingo: 17:00 - 00:00</p>
-                            </div>
+
+                    <div class="contact__info-item">
+                        <img src="assets/img/relogio.png" alt="" aria-hidden="true" class="contact__icon">
+                        <div>
+                            <h3 class="contact__info-title">Horários de Funcionamento</h3>
+                            <p class="contact__hours">Segunda a Domingo: 17:00 – 00:00</p>
                         </div>
                     </div>
-                    
-                    <div class="location-contact">
-                        <h2>Contato</h2>
-                        <div class="contact-links">
-                            <div class="address-contact-item">
-                                <img src="assets/img/telefone.png" alt="Ícone Telefone" class="icon-contact">
+
+                    <div class="contact__links-wrapper">
+                        <h3 class="contact__info-title">Contato</h3>
+                        <div class="contact__links">
+                            <div class="contact__link-item">
+                                <img src="assets/img/telefone.png" alt="" aria-hidden="true" class="contact__icon">
                                 <a href="https://web.whatsapp.com/send?phone=31987768550" target="_blank" rel="noopener noreferrer">(31) 98776-8550</a>
                             </div>
-                            <div class="address-contact-item">
-                                <img src="assets/img/instagram.png" alt="Ícone Instagram" class="icon-contact">
+                            <div class="contact__link-item">
+                                <img src="assets/img/instagram.png" alt="" aria-hidden="true" class="contact__icon">
                                 <a href="https://www.instagram.com/bardokim2021" target="_blank" rel="noopener noreferrer">@bardokim2021</a>
                             </div>
                         </div>
                     </div>
-                </div>
+
+                </address>
             </div>
         </section>
+
     </main>
 
-    <footer>
-        <div class="footer-container">
-            <p class="nav-logo">Bar do Kim</p>
-            <p class="footer-text">&copy; 2026 Bar do Kim. Todos os direitos reservados.</p>
+    <footer class="footer" role="contentinfo">
+        <div class="container footer__container">
+            <p class="footer__brand">Bar do Kim</p>
+            <p class="footer__copy">&copy; 2026 Bar do Kim. Todos os direitos reservados.</p>
         </div>
     </footer>
 
