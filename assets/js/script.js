@@ -41,8 +41,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // NAVBAR — destaca link ativo conforme scroll
     // =========================================================
     const NAVBAR_OFFSET = 150;
+    const SCROLL_BG_THRESHOLD = 100;
 
     const updateActiveNavLink = () => {
+        if (window.scrollY > SCROLL_BG_THRESHOLD) {
+            navbar.classList.add('is-scrolled');
+        } else {
+            navbar.classList.remove('is-scrolled');
+        }
+
         let currentSectionId = '';
 
         sections.forEach(section => {
@@ -60,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     if (navbar) {
+        updateActiveNavLink();
         window.addEventListener('scroll', updateActiveNavLink, { passive: true });
     }
 

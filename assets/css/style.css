@@ -96,6 +96,10 @@ body {
     transition: background-color 0.5s ease;
 }
 
+#navbar.is-scrolled {
+    background-color: #000000; /* Muda para preto */
+}
+
 .navbar__container {
     max-width: 1200px;
     margin: 0 auto;
