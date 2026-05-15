@@ -279,6 +279,7 @@ body {
 .btn img {
     height: 1.5rem;
     object-fit: contain;
+    transition: filter var(--transition-base);
 }
 
 .btn--ifood {
@@ -310,6 +311,7 @@ body {
 
 .btn--order img {
     height: 1.2rem;
+    filter: brightness(1) invert(0);
 }
 
 .btn--order:hover {
@@ -318,7 +320,7 @@ body {
 }
 
 .btn--order:hover img {
-    filter: brightness(100);
+    filter: brightness(0) invert(1);
 }
 
 /* =========================================================

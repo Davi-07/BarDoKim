@@ -96,6 +96,7 @@
                 <div class="menu__catalog">
                     <div class="menu__controls">
                         <div class="menu__filters" role="group" aria-label="Filtrar por categoria">
+                            <button class="filter-btn" data-filter="delivery">Delivery</button>
                             <button class="filter-btn is-active" data-filter="prato">Pratos</button>
                             <button class="filter-btn" data-filter="bebida">Bebidas</button>
                         </div>
@@ -106,7 +107,7 @@
                     </div>
 
                     <div class="menu__carousel" id="js-menu-container" role="list">
-                        <article class="menu__card" data-category="prato" role="listitem">
+                        <article class="menu__card" data-category="delivery" role="listitem">
                             <h3 class="menu__card-title">Bolinho de Feijão</h3>
                             <p class="menu__card-desc">Descrição breve do bolinho de feijão.</p>
                             <strong class="menu__card-price">R$ 19,90</strong>
@@ -117,12 +118,16 @@
                         </article>
 
                         <article class="menu__card" data-category="prato" role="listitem">
+                            <h3 class="menu__card-title">Bolinho de Feijão</h3>
+                            <p class="menu__card-desc">Descrição breve do bolinho de feijão.</p>
+                            <strong class="menu__card-price">R$ 19,90</strong>
+                            <img src="assets/img/prato2.jpg" alt="Bolinho de Feijão" class="menu__card-img">
+                        </article>
+
+                        <article class="menu__card" data-category="prato" role="listitem">
                             <h3 class="menu__card-title">Língua Recheada</h3>
                             <p class="menu__card-desc">Deliciosa língua recheada com temperos da casa.</p>
                             <strong class="menu__card-price">R$ 24,90</strong>
-                            <button class="btn btn--order">
-                                <img src="assets/img/carrinho.png" alt="" aria-hidden="true"> Peça agora
-                            </button>
                             <img src="assets/img/prato3.jpg" alt="Língua Recheada" class="menu__card-img">
                         </article>
 
@@ -130,9 +135,6 @@
                             <h3 class="menu__card-title">Cerveja Artesanal (600ml)</h3>
                             <p class="menu__card-desc">IPA gelada e refrescante.</p>
                             <strong class="menu__card-price">R$ 15,90</strong>
-                            <button class="btn btn--order">
-                                <img src="assets/img/carrinho.png" alt="" aria-hidden="true"> Peça agora
-                            </button>
                             <img src="assets/img/prato1.jpg" alt="Cerveja Artesanal" class="menu__card-img">
                         </article>
                     </div>
@@ -150,7 +152,13 @@
             <div class="space__gallery">
                 <img src="assets/img/calcada.jpg" alt="Calçada do Bar do Kim">
                 <img src="assets/img/prato1.jpg"  alt="Prato do Bar do Kim">
-                <img src="assets/img/prato3.jpg"  alt="Prato especial do Bar do Kim">
+                <img src="assets/img/prato2.jpg"  alt="Prato especial do Bar do Kim">
+                <img src="assets/img/prato3.jpg"  alt="Espetinho" srcset="">
+                <img src="assets/img/prato4.jpg"  alt="" srcset="">
+                <img src="assets/img/prato5.jpg"  alt="Prato especial do Bar do Kim">
+                <img src="assets/img/prato1.jpg"  alt="Prato especial do Bar do Kim">
+                <img src="assets/img/prato2.jpg"  alt="Prato especial do Bar do Kim">
+                <img src="assets/img/calcada.jpg" alt="Prato especial do Bar do Kim">
             </div>
         </section>
 
@@ -192,7 +200,7 @@
                             <h3 class="contact__info-title">Contato</h3>
                             <div class="contact__links">
                                 <div class="contact__link-item">
-                                    <img src="assets/img/telefone.png" alt="" aria-hidden="true"    class="contact__icon">
+                                    <img src="assets/img/whatsappLaranja.png" alt="" aria-hidden="true" class="contact__icon">
                                     <a href="https://wa.me/31987768550" target="_blank" rel="noopener   noreferrer">(31) 98776-8550</a>
                                 </div>
                                 <div class="contact__link-item">
