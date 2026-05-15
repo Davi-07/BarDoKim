@@ -516,7 +516,7 @@ body {
    SEÇÃO NOSSO ESPAÇO
    ========================================================= */
 .space {
-    padding: 5rem 1.5rem;
+    padding: 5rem 1.5rem 2rem 1.5rem;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -545,7 +545,7 @@ body {
    SEÇÃO CONTATO
    ========================================================= */
 .contact {
-    padding: 5rem 1.5rem;
+    padding: 5rem 1.5rem 8rem 1.5rem;
     background-color: #f9fafb;
     text-align: center;
 }
