@@ -360,14 +360,10 @@ body {
     align-items: center;
     justify-content: center;
     align-self: center;
-    height: fit-content;
+    height: 520px;
     gap: 1rem;
     width: 100%;
     max-width: 320px;
-    /* FIX 3: padding fixo em vez de deixar o hover alterar o tamanho do elemento.
-       O problema original era que o hover aumentava o font-size do link (.menu__qr-link),
-       o que empurrava os elementos acima (textos e imagem do QR) para cima porque o
-       container usava flexbox sem altura mínima reservada para o link. */
     padding: 2rem 1.5rem;
     background-color: var(--color-bg);
     border: 1px dashed var(--color-accent);
