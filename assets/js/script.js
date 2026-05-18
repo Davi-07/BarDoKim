@@ -98,24 +98,26 @@ document.addEventListener('DOMContentLoaded', () => {
             menuCarousel.scrollTo({ left: 0, behavior: 'smooth' });
         }
 
-        const isDesktop = window.innerWidth > 768;
+        // Garante que as setas fiquem visíveis (removida a restrição que as escondia no mobile)
         if (arrowsWrapper) {
-            arrowsWrapper.style.display = isDesktop ? 'flex' : 'none';
+            arrowsWrapper.style.display = 'flex';
         }
     };
 
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('is-active'));
-            btn.classList.add('is-active');
-            applyFilter(btn.dataset.filter);
+    if (filterBtns.length > 0) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('is-active'));
+                btn.classList.add('is-active');
+                applyFilter(btn.dataset.filter);
+            });
         });
-    });
 
-    // Aplica o filtro do botão marcado como ativo na carga da página
-    const initialActiveBtn = document.querySelector('.filter-btn.is-active');
-    if (initialActiveBtn) {
-        applyFilter(initialActiveBtn.dataset.filter);
+        // Aplica o filtro do botão marcado como ativo na carga da página
+        const initialActiveBtn = document.querySelector('.filter-btn.is-active');
+        if (initialActiveBtn) {
+            applyFilter(initialActiveBtn.dataset.filter);
+        }
     }
 
     // =========================================================

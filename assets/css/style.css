@@ -386,14 +386,10 @@ body {
     color: var(--color-accent);
     font-weight: bold;
     text-decoration: none;
-    /* FIX 3: Em vez de crescer o font-size no hover (o que mudava o tamanho do elemento
-       e deslocava todos os itens acima no flexbox), usamos underline + leve escurecimento
-       via filter. O tamanho do elemento permanece idêntico antes e depois do hover. */
     transition: filter var(--transition-base);
 }
 
 .menu__qr-link:hover {
-    /* font-size: 1.05rem;  <-- REMOVIDO: era isso que causava o deslocamento */
     filter: brightness(0.75);
 }
 
@@ -408,14 +404,24 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.5rem;
+    width: 100%;
 }
 
 .menu__filters {
     display: flex;
     gap: 0.5rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+}
+
+.menu__filters::-webkit-scrollbar {
+    display: none;
 }
 
 .filter-btn {
+    flex-shrink: 0;
     padding: 0.5rem 1.5rem;
     border: 2px solid rgba(255, 255, 255, 0.6);
     background: rgba(255, 255, 255, 0.15);
@@ -436,10 +442,6 @@ body {
     filter: brightness(0.88);
 }
 
-/* FIX 2: As setas agora são sempre visíveis.
-   O problema era que .menu__arrows não tinha nenhuma regra de display explícita,
-   então em alguns navegadores/versões mobile ele poderia herdar display:none ou
-   ser ocultado por overflow do pai. Garantimos display:flex explicitamente. */
 .menu__arrows {
     display: flex;
     gap: 0.5rem;
@@ -455,13 +457,10 @@ body {
     color: #ffffff;
     cursor: pointer;
     font-size: 1.2rem;
-    /* FIX 2: display:flex + centralizadores garantem que o ❮ e ❯ apareçam
-       corretamente em todos os navegadores, inclusive Safari iOS e WebViews. */
     display: flex;
     align-items: center;
     justify-content: center;
     transition: filter var(--transition-base);
-    /* Evita que o botão suma em navegadores que aplicam tap-highlight invisível */
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -469,22 +468,13 @@ body {
     filter: brightness(0.88);
 }
 
-/* FIX 1: Remoção da "borda invisível" no scroll lateral em mobile.
-   O problema vinha do padding-bottom: 1rem no .menu__carousel combinado com
-   overflow-x: auto. Em mobile, o padding interno de um container com overflow
-   não é renderizado além do último filho — o navegador corta o espaço após o
-   último card. A solução é tirar o padding do próprio carousel e usar
-   margin-right no último card para criar o mesmo espaço visual sem corte. */
 .menu__carousel {
     display: flex;
     overflow-x: auto;
     gap: 1.5rem;
-    /* FIX 1: padding-bottom removido daqui e aplicado via pseudo-elemento abaixo */
     padding-bottom: 0.25rem;
     scroll-behavior: smooth;
     scrollbar-width: none;
-    /* FIX 1: scroll-padding garante que ao navegar pelas setas o card não fique
-       parcialmente escondido atrás da borda do container */
     scroll-padding-inline: 1.5rem;
 }
 
@@ -492,10 +482,9 @@ body {
     display: none;
 }
 
-/* FIX 1: Pseudo-elemento que empurra o scroll até o fim sem causar clip visual */
 .menu__carousel::after {
     content: '';
-    flex: 0 0 0.01px; /* ocupa espaço mínimo para forçar o scroll até o último card */
+    flex: 0 0 0.01px;
     padding-right: 1.5rem;
 }
 
@@ -516,17 +505,8 @@ body {
     height: 420px;
 }
 
-
 .menu__card:not([data-category="delivery"]) .menu__card-desc {
     flex: none;
-}
-
-.menu__card:not([data-category="delivery"]) .menu__card-img {
-    width: 100%;
-    height: 180px;          
-    object-fit: contain;  
-    border-radius: 1rem;
-    margin-top: auto;     
 }
 
 .menu__card-title {
@@ -557,10 +537,10 @@ body {
 
 .menu__card-img {
     width: 100%;
-    height: 180px;          /* Altura fixa para manter o padrão em todos os cards */
-    object-fit: cover;      /* Preenche o espaço sem distorcer (use 'contain' se preferir a opção anterior) */
+    height: 180px;
+    object-fit: cover; /* Pode usar contain se quiser evitar qualquer tipo de corte na foto */
     border-radius: 0.5rem;
-    margin-top: 1rem;       /* Empurra a imagem sempre para o final do card */
+    margin-top: 1rem;
 }
 
 /* =========================================================
@@ -699,9 +679,9 @@ body {
    ========================================================= */
 .footer {
     display: flex;
-    align-items: center;    
+    align-items: center;
     height: 200px;
-    padding: 0 1.5rem;    
+    padding: 0 1.5rem;
     border-top: 1px solid var(--color-border);
     background: var(--color-fg);
     color: var(--color-accent-fg);
@@ -714,10 +694,10 @@ body {
     justify-content: space-around;
     align-items: center;
     gap: 1rem;
-    width: 100%;             
-    height: 100%;            
-    max-width: 1200px;       
-    margin: 0 auto;        
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .footer__brand {
@@ -725,7 +705,7 @@ body {
     font-size: 1.5rem;
 }
 
-#autor a{
+#autor a {
     color: var(--color-border);
     transition: color var(--transition-base);
 }
@@ -809,5 +789,19 @@ body {
 @media (max-width: 768px) {
     .space__gallery {
         column-count: 1;
+    }
+    
+    .menu__controls {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .menu__filters {
+        width: 100%;
+    }
+    
+    .menu__arrows {
+        align-self: flex-end;
     }
 }
