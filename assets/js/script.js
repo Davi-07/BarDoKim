@@ -9,10 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroSlides     = document.querySelectorAll('#js-bg-carousel .hero__slide');
     const sections       = document.querySelectorAll('#inicio, #cardapio, #espaco, #contato');
     const allNavLinks    = document.querySelectorAll('.navbar__link, .mobile-menu__link');
-    const filterBtns     = document.querySelectorAll('.filter-btn');
-    const menuCards      = document.querySelectorAll('.menu__card');
     const menuCarousel   = document.getElementById('js-menu-container');
-    const arrowsWrapper  = document.getElementById('js-carousel-arrows');
     const btnPrev        = document.getElementById('js-btn-prev');
     const btnNext        = document.getElementById('js-btn-next');
 
@@ -86,57 +83,39 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================================
-    // CARDÁPIO — filtros por categoria
-    // =========================================================
-    const applyFilter = (category) => {
-        menuCards.forEach(card => {
-            const isVisible = card.dataset.category === category;
-            card.style.display = isVisible ? 'flex' : 'none';
-        });
-
-        if (menuCarousel) {
-            menuCarousel.scrollTo({ left: 0, behavior: 'smooth' });
-        }
-
-        // Garante que as setas fiquem visíveis (removida a restrição que as escondia no mobile)
-        if (arrowsWrapper) {
-            arrowsWrapper.style.display = 'flex';
-        }
-    };
-
-    if (filterBtns.length > 0) {
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('is-active'));
-                btn.classList.add('is-active');
-                applyFilter(btn.dataset.filter);
-            });
-        });
-
-        // Aplica o filtro do botão marcado como ativo na carga da página
-        const initialActiveBtn = document.querySelector('.filter-btn.is-active');
-        if (initialActiveBtn) {
-            applyFilter(initialActiveBtn.dataset.filter);
-        }
-    }
-
-    // =========================================================
-    // CARDÁPIO — setas de navegação do carrossel
+    // CARDÁPIO — setas de navegação do carrossel (Com Loop)
     // =========================================================
     if (btnNext && btnPrev && menuCarousel) {
         const getScrollAmount = () => {
-            const firstCard = menuCarousel.querySelector('.menu__card:not([style*="display: none"])');
+            const firstCard = menuCarousel.querySelector('.menu__card');
             if (!firstCard) return 0;
             // largura do card + gap (1.5rem = 24px)
             return firstCard.offsetWidth + 24;
         };
 
         btnNext.addEventListener('click', () => {
-            menuCarousel.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+            // maxScrollLeft é o máximo que a barra de rolagem consegue ir para a direita
+            const maxScrollLeft = menuCarousel.scrollWidth - menuCarousel.clientWidth;
+            
+            // Se já chegou no final (com uma tolerância de 5px para arredondamentos do navegador)
+            if (menuCarousel.scrollLeft >= maxScrollLeft - 5) {
+                // Rola suavemente de volta para o começo (posição 0)
+                menuCarousel.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                // Caso contrário, continua avançando normalmente
+                menuCarousel.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+            }
         });
 
         btnPrev.addEventListener('click', () => {
-            menuCarousel.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+            // Se estiver no começo da lista (com tolerância de 5px)
+            if (menuCarousel.scrollLeft <= 5) {
+                // Rola suavemente direto para o final
+                menuCarousel.scrollTo({ left: menuCarousel.scrollWidth, behavior: 'smooth' });
+            } else {
+                // Caso contrário, volta normalmente
+                menuCarousel.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+            }
         });
     }
 
