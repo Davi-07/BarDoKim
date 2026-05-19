@@ -9,7 +9,7 @@
     --color-accent:      #ea580c;
     --color-accent-fg:   #ffffff;
     --color-brand-red:   #e7272d;
-    --color-whatsapp:    #25D366;
+    --color-99:          #fbca08;
     --color-section-alt: #fff5cd;
 
     --font-display: 'Montserrat', sans-serif;
@@ -287,18 +287,17 @@ body {
     color: var(--color-accent-fg);
 }
 
-.btn--ifood img,
-.btn--whatsapp img {
+.btn--ifood img {
     filter: brightness(100);
 }
 
-.btn--whatsapp {
-    background: var(--color-whatsapp);
+.btn--99 {
+    background: var(--color-99);
     color: var(--color-accent-fg);
 }
 
 .btn--ifood:hover,
-.btn--whatsapp:hover {
+.btn--99:hover {
     filter: brightness(0.9);
 }
 
