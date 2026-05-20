@@ -83,40 +83,61 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================================
-    // CARDÁPIO — setas de navegação do carrossel (Com Loop)
-    // =========================================================
-    if (btnNext && btnPrev && menuCarousel) {
-        const getScrollAmount = () => {
-            const firstCard = menuCarousel.querySelector('.menu__card');
-            if (!firstCard) return 0;
+     // CARDÁPIO — setas de navegação do carrossel (Loop Contínuo)
+     // =========================================================
+     if (btnNext && btnPrev && menuCarousel) {
+     const getScrollAmount = () => {
+         const firstCard = menuCarousel.querySelector('.menu__card');
+             if (!firstCard) return 0;
             // largura do card + gap (1.5rem = 24px)
-            return firstCard.offsetWidth + 24;
-        };
+                return firstCard.offsetWidth + 24;
+         };
+
+        let isMoving = false; // Evita bugar se o usuário clicar várias vezes rápido
+        const SCROLL_DURATION = 400; // Tempo aproximado para a animação de scroll terminar (em ms)
 
         btnNext.addEventListener('click', () => {
-            // maxScrollLeft é o máximo que a barra de rolagem consegue ir para a direita
-            const maxScrollLeft = menuCarousel.scrollWidth - menuCarousel.clientWidth;
-            
-            // Se já chegou no final (com uma tolerância de 5px para arredondamentos do navegador)
-            if (menuCarousel.scrollLeft >= maxScrollLeft - 5) {
-                // Rola suavemente de volta para o começo (posição 0)
-                menuCarousel.scrollTo({ left: 0, behavior: 'smooth' });
-            } else {
-                // Caso contrário, continua avançando normalmente
-                menuCarousel.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
-            }
-        });
+            if (isMoving) return;
+            isMoving = true;
 
-        btnPrev.addEventListener('click', () => {
-            // Se estiver no começo da lista (com tolerância de 5px)
-            if (menuCarousel.scrollLeft <= 5) {
-                // Rola suavemente direto para o final
-                menuCarousel.scrollTo({ left: menuCarousel.scrollWidth, behavior: 'smooth' });
-            } else {
-                // Caso contrário, volta normalmente
-                menuCarousel.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
-            }
-        });
-    }
+            const scrollAmount = getScrollAmount();
+            
+            // 1. Rola suavemente para o próximo item
+            menuCarousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+
+            // 2. Aguarda a animação visual terminar
+            setTimeout(() => {
+                // Pega o 1º elemento do HTML e joga lá pro final
+                menuCarousel.appendChild(menuCarousel.firstElementChild);
+                
+                // Retorna a barra de rolagem instantaneamente para compensar o item que saiu do começo
+                menuCarousel.scrollBy({ left: -scrollAmount, behavior: 'instant' }); 
+                
+                isMoving = false;
+            }, SCROLL_DURATION);
+        });
+
+        btnPrev.addEventListener('click', () => {
+            if (isMoving) return;
+            isMoving = true;
+
+            const scrollAmount = getScrollAmount();
+            
+            // 1. Pega o último elemento do HTML e joga para o começo
+            menuCarousel.prepend(menuCarousel.lastElementChild);
+            
+            // 2. Empurra a barra de rolagem instantaneamente pra frente para esconder o item novo
+            menuCarousel.scrollBy({ left: scrollAmount, behavior: 'instant' });
+
+            // 3. Dá um micropasso para o navegador renderizar o DOM e então rola suavemente para trás
+            requestAnimationFrame(() => {
+                menuCarousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                
+                setTimeout(() => {
+                    isMoving = false;
+                }, SCROLL_DURATION);
+            });
+        });
+    }
 
 });
